@@ -12,14 +12,20 @@ class Grader
     @grade = grade
   end
   def getGrade
-    return @grade
+    if 0 > @grade || @grade > 100
+      return "not a valid grade."
+    elsif @grade <= 60
+      return "F"
+    else
+      return "A"
+    end
   end
   end
 
 
 
-user = Grader.new("John", "Grader", 92)
-puts(user.getGrade())
+user = Grader.new("John", "Grader", 102)
+puts("This is " + user.getGrade())
 
 
 #   def getGrade
