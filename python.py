@@ -12,7 +12,9 @@ class Grader:
   # 100-90=A, 80-89=B, 79-70=C, 69-60=D, <60=F
   def getGrade(self):
     num = self.grade
-    if num < 60:
+    if 0 > num:
+        return "not a valid grade."
+    elif num < 60:
        return "F"
     elif num <= 69:
        return "D"
@@ -20,8 +22,10 @@ class Grader:
        return "C"
     elif num <= 89:
        return "B"
+    elif num <= 100:
+       return "A"
     else:
-        return "A"
+        return "not a valid grade."
 
 
 # Using the command line ask user a question for students name
@@ -31,21 +35,28 @@ name = raw_input("Student Name: ")
 aname = raw_input("Assignment Name: ")
 
 # Using the command line ask user a question for grade in numbers
-grade = raw_input("Number Grade: ")
+#grade = raw_input("Number Grade: ")
 
 #Validate user input for grade
-
-#grade = int(raw_input("Number Grade: +"))
+while True:
+    #Check to see if the number entered is valid
+    try:
+        grade = float(raw_input("Number Grade: "))
+    #Tell the user to enter a number
+    except ValueError:
+        print("Please enter a number.")
+        #Repeats the try
+        continue
+    else:
+        #User entered a number
+        break
 
 user = Grader(name, aname, grade)
-output = "Hello "+name+". Your letter grade for "+aname+" is: " + user.getGrade()
-print(output)
-
-
 
 # Return the letter grade for the assignment
 
-
+output = "Hello "+name+". Your letter grade for "+aname+" is " + user.getGrade()
+print(output)
 
 # To test your function, try it with these 5 point values and echo the result back out from the value returned from the function:
 # 1. 94
