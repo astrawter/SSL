@@ -21,17 +21,32 @@ class Grader
       return "A"
     end
   end
+  def getUser
+    return "Hello "+ @name + ". The grade the assignment " + @aname+ " is "
+  end
   end
 
 # Using the command line ask user a question for students name
+puts "Enter your name below."
+name = gets
 # Using the command line ask user a question for assignment name
+puts "Enter the name of the assignment."
+aname = gets
 # Using the command line ask user a question for grade in numbers
+puts "Enter the number grade for the assignment."
+user_num=Integer(gets) rescue false
+if !user_num
+  puts "Enter a valid number"
+  user_num=Integer(gets) rescue false
+else
+   grade = user_num
+end
+#grade = gets.chomp.to_i
 
 
-
-user = Grader.new("John", "Grader", 94)
+user = Grader.new(name.chomp, aname.chomp, grade)
 # Return the letter grade for the assignment
-puts("This is " + user.getGrade())
+puts(user.getUser() + user.getGrade())
 
 # To test your function, try it with these 5 point values and echo the result back out from the value returned from the function:
 # 1. 94
