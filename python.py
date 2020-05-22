@@ -1,0 +1,57 @@
+# Create a grader
+
+# Create a class "Grader"
+class Grader:
+  def __init__(self, name, aname, grade):
+    self.name = name
+    self.aname = aname
+    self.grade = grade
+
+# Create methods to output a valid grade
+  # Assign letter grades based on points earned.
+  # 100-90=A, 80-89=B, 79-70=C, 69-60=D, <60=F
+  def getGrade(self):
+    num = self.grade
+    if num < 60:
+       return "F"
+    elif num <= 69:
+       return "D"
+    elif num <= 79:
+       return "C"
+    elif num <= 89:
+       return "B"
+    else:
+        return "A"
+
+
+# Using the command line ask user a question for students name
+name = raw_input("Student Name: ")
+
+# Using the command line ask user a question for assignment name
+aname = raw_input("Assignment Name: ")
+
+# Using the command line ask user a question for grade in numbers
+grade = raw_input("Number Grade: ")
+
+#Validate user input for grade
+
+#grade = int(raw_input("Number Grade: +"))
+
+user = Grader(name, aname, grade)
+output = "Hello "+name+". Your letter grade for "+aname+" is: " + user.getGrade()
+print(output)
+
+
+
+# Return the letter grade for the assignment
+
+
+
+# To test your function, try it with these 5 point values and echo the result back out from the value returned from the function:
+# 1. 94
+# 2. 54
+# 3. 89.9
+# 4. 60.01
+# 5. 102.1
+
+# Show errors in command line if there are any.
