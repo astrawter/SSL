@@ -12,7 +12,7 @@ class Grader:
   # 100-90=A, 80-89=B, 79-70=C, 69-60=D, <60=F
   def getGrade(self):
     num = self.grade
-    if 0 > num:
+    if 0 > num or num > 100:
         return "not a valid grade."
     elif num < 60:
        return "F"
@@ -22,10 +22,8 @@ class Grader:
        return "C"
     elif num <= 89:
        return "B"
-    elif num <= 100:
-       return "A"
     else:
-        return "not a valid grade."
+        return "A"
 
 
 # Using the command line ask user a question for students name
