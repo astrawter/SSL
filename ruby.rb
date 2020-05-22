@@ -29,22 +29,18 @@ class Grader
 # Using the command line ask user a question for students name
 puts "Enter your name below."
 name = gets
+
 # Using the command line ask user a question for assignment name
 puts "Enter the name of the assignment."
 aname = gets
+
 # Using the command line ask user a question for grade in numbers
 puts "Enter the number grade for the assignment."
-user_num=Integer(gets) rescue false
-if !user_num
-  puts "Enter a valid number"
-  user_num=Integer(gets) rescue false
-else
-   grade = user_num
-end
-#grade = gets.chomp.to_i
+grade = gets.to_f
 
-
+#create user with input
 user = Grader.new(name.chomp, aname.chomp, grade)
+
 # Return the letter grade for the assignment
 puts(user.getUser() + user.getGrade())
 
