@@ -1,4 +1,13 @@
 // Create a class "Grader"
+class Grader{
+  constructor(name,aname,grade){
+    this.name = name;
+    this.aname = aname;
+    this.grade = grade;
+  }
+}
+let user = new Grader("name","aname",85);
+console.log(user);
 // Create methods to output a valid grade
 // Using the command line ask user a question for students name
 // Using the command line ask user a question for assignment name
@@ -12,5 +21,12 @@
 // 3. 89.9
 // 4. 60.01
 // 5. 102.1
-// Hint: Think about the order in which if/elseif/else evaluates your conditions. Do you test for an "A" condition first and work your way down, or test for "F" and work your way up?
-// Show errors in command line if there are any.
+// doors = function(type){
+// this.number=0;
+// if(type=="Toyota"){
+// this.number=4;
+// }else{
+// this.number = 2;
+// }
+// return this.number;
+// }
