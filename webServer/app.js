@@ -23,7 +23,7 @@ http.createServer(function(req,res){
   page = filename.name==""?"index":filename.name;
 
 
-  
+
   f = (dir+filen+ext).replace("/","");
   console.log("f: "+f);
   var mimeTypes = {
@@ -37,10 +37,10 @@ http.createServer(function(req,res){
 
   if (f) {
     fs.readFile(f,function(err,data){
-// console.log("data: "+data);
+
       if (page){
         if (mimeTypes.hasOwnProperty(ext)){
-          res.writeHead(200, { 'Content-Type': ext});
+          res.writeHead(200, { 'Content-Type': mimeTypes[ext]});
           res.end(data, 'utf-8');
         }
       }
