@@ -17,7 +17,7 @@ checker = (num) => {
 }
 
 class Grader{
-  constructor(name,aname,grade){
+  constructor(name,aname){
     this.name = name;
     this.aname = aname;
   }

@@ -22,7 +22,7 @@ class Grader
     end
   end
   def getUser
-    return "Hello "+ @name + ". The grade the assignment " + @aname+ " is "
+    return "Hello "+ @name + ". The grade for the assignment " + @aname+ " is "
   end
   end
 

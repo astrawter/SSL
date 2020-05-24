@@ -33,7 +33,6 @@ name = raw_input("Student Name: ")
 aname = raw_input("Assignment Name: ")
 
 # Using the command line ask user a question for grade in numbers
-#grade = raw_input("Number Grade: ")
 
 #Validate user input for grade
 while True:
