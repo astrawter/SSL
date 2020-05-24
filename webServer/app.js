@@ -19,11 +19,11 @@ http.createServer(function(req,res){
   //variables
   filen = filename.name==""?"index":filename.name;
   ext = filename.ext==""?".html":filename.ext;
-  dir = filename.dir=="/"?"":filename.dir;
+  dir = filename.dir=="/"?"":filename.dir+"/";
   page = filename.name==""?"index":filename.name;
-  console.log("dir: "+dir);
-  console.log("filen: "+filen);
-  console.log("ext: "+ext);
+
+
+  
   f = (dir+filen+ext).replace("/","");
   console.log("f: "+f);
   var mimeTypes = {
