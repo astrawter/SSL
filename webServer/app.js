@@ -22,10 +22,9 @@ http.createServer(function(req,res){
   dir = filename.dir=="/"?"":filename.dir+"/";
   page = filename.name==""?"index":filename.name;
 
-
-
+  //file path
   f = (dir+filen+ext).replace("/","");
-  console.log("f: "+f);
+
   var mimeTypes = {
     '.html':"text/html",
     '.js':"text/javascript",
@@ -40,6 +39,7 @@ http.createServer(function(req,res){
 
       if (page){
         if (mimeTypes.hasOwnProperty(ext)){
+          //give content type based off object
           res.writeHead(200, { 'Content-Type': mimeTypes[ext]});
           res.end(data, 'utf-8');
         }
