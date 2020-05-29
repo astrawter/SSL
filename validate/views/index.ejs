@@ -2,10 +2,9 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Web Server</title>
+    <title>Validate</title>
   </head>
   <body>
-    <%- include("partial/nav")%>
 
 
 <!-- -->
@@ -25,9 +24,10 @@
     <!-- display the errors-->
         <% for(x in errors){%>
           <%console.log(errors[x])%>
-        <br><span><% errors[x] %></span>
+        <span><%- errors[x] %></span><br>
         <%}%>
 <!-- Display form again to be resubmited -->
+<br>
     <%- include("partial/form")%>
 
 <!-- Form has been submitted correctly -->

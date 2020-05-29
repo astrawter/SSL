@@ -30,12 +30,11 @@ router.get("/about", function(req, res) {
 })
 
 
-router.post("/login", function(req, res) {
+router.post("/register", function(req, res) {
   //displays form information to the console
   console.log(req.body);
 
   //Validate user information
-
   //keeps track of all errors from form validation
   var errors=[];
 
