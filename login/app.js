@@ -29,6 +29,22 @@ router.get("/", function(req, res) {
   })
 })
 
+router.get("/profile", function(req,res){
+  sess = req.session;
+  if (typeof(sess)=="undefined" || sess.loggedin != true) {
+    var errors = ["Not an authenticated user"];
+    res.render("index",{pagename:"Home",errors:errors})
+  }else {
+    res.render("profile",{pagename:"Profile",sess:sess})
+  }
+})
+
+router.get("/logout", function(req,res){
+  sess = req.session;
+  sess.destroy(function(err){
+    res.redirect("/");
+  })
+})
 
 router.post("/login", function(req, res) {
   //displays form information to the console
@@ -37,20 +53,31 @@ router.post("/login", function(req, res) {
   //Validate user information
   //keeps track of all errors from form validation
   var errors=[];
+  var counter= 0;
 
   //Validate Email Address
   if (req.body.email !== "Mike@aol.com") {
     errors.push("Please enter a valid email address")
+  }else {
+    counter +=1;
   }
 
   //Validate Password
   if (req.body.password !== "abc123") {
-    errors.push("Please enter a valid zip code")
+    errors.push("Please enter the correct password")
+  }else {
+    counter +=1;
   }
 
-  //redirect to index
-  console.log(errors.length);
-  res.render("index", {pagename: "Home", errors:errors});
+  //validate user
+  if (counter == 2) {
+    sess = req.sessions;
+    //redirects to profile
+    res.render("profile",{pagename:"Profile",sess:sess})
+  }else {
+    //redirect to index with errors
+    res.render("index", {pagename: "Home", errors:errors});
+  }
 })
 
 

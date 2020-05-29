@@ -1,0 +1,10 @@
+<ul>
+     <li>
+       <a href="/">Home</a>
+     </li>
+  </ul>
+<%console.log(sess)%>
+<%if(typeof(sess)!="undefined" && sess.loggedin==true){%>
+  <a href="/profile">Profile</a>
+  <a href="/logout">Logout</a>
+<%}%>

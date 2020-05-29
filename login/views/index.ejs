@@ -2,25 +2,19 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Validate</title>
+    <title>Login</title>
   </head>
   <body>
 
-
-<!-- -->
-
+<%- include("partial/nav")%>
 <!-- page first loaded form not sent -->
   <%if(errors === null){%>
     <h1>Registration</h1>
     <%- include("partial/form")%>
 
 <!--form submitted and errors found -->
-  <%}else if(errors.length > 0){%>
-
-    <h1>Registration</h1>
-    <p>
-      Errors found when submitting please try again.
-    </p>
+  <%}else{%>
+    <h1>Login</h1>
     <!-- display the errors-->
         <% for(x in errors){%>
           <%console.log(errors[x])%>
@@ -30,9 +24,7 @@
 <br>
     <%- include("partial/form")%>
 
-<!-- Form has been submitted correctly -->
-<%}else{%>
-  <h1>Registration Successful</h1>
-  <%}%>
+<%}%>
+
   </body>
 </html>
