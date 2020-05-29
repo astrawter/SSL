@@ -1,43 +1,16 @@
 <ul>
   <li>
-<% if (pagename=="Home") {%>
-  <a class="nav-link" style="color:orange" href="/">Home</a>
-<%}else{%>
-  <a class="nav-link" href="/">Home</a>
-<%}%>
+    <% if (pagename=="Home") {%>
+    <a class="nav-link" style="color:orange" href="/">Home</a>
+    <%}else{%>
+    <a class="nav-link" href="/">Home</a>
+    <%}%>
   </li>
   <li>
-<% if (pagename=="About") {%>
-  <a class="nav-link" style="color:orange" href="/About">About</a>
-<%}else{%>
+    <% if (pagename=="About") {%>
+    <a class="nav-link" style="color:orange" href="/About">About</a>
+    <%}else{%>
     <a class="nav-link" href="/About">About</a>
-<%}%>
+    <%}%>
   </li>
 </ul>
-
-<div>
-    <form action="login" method="post">
-<label for="fname">Full name:</label>
-      <input type="text" name="fname" value=""><br>
-<label for="addy">Adress:</label>
-      <input type="text" name="addy" value=""><br>
-<label for="city">City:</label>
-      <input type="text" name="city" value=""><br>
-<label for="state">State:</label>
-      <input type="text" name="state" value=""><br>
-<label for="zip">Zip Code:</label>
-      <input type="text" name="zip" pattern="^\d{5}$"><br>
-<label for="age">Age:</label>
-      <input type="number" name="age" min=0 max=100><br>
-<label for="gender">Gender</label>
-<input type="radio" id="male" name="gender" value="male">
-<label for="male">Male</label>
-<input type="radio" id="female" name="gender" value="female">
-<label for="female">Female</label><br>
-<input type="checkbox"  name="consent" value="true">
-  <label for="consent"> I agree to the terms and conditions applied here</label><br>
-  <label for="bio">About you:</label>
-  <textarea name="bio" ></textarea><br>
-  <input type="submit">
-    </form>
-</div>

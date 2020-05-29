@@ -23,6 +23,14 @@ router.get("/about", function(req,res){
   res.render("about",{pagename:"About"})
 })
 
+router.get("/success", function(req,res){
+  res.render("success",{pagename:"Success"})
+})
+
+router.post("/login",function(req,res){
+  console.log(req.body);
+  res.redirect("/success")
+})
 app.use(express.static("public"));
 app.use("/",router);
 var server = app.listen("8080");
