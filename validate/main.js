@@ -54,9 +54,11 @@ router.post("/login", function(req, res) {
     errors.push("Please enter a valid address")
   }
 
+  //Validate City
 
   //redirect to success page
-  res.redirect("/success")
+  console.log(errors);
+  res.render("success", {pagename: "Success", errors:errors});
 })
 
 app.use(express.static("public"));

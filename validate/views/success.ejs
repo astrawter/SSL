@@ -1,10 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>Registration Successful</h1>
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <title></title>
+</head>
+
+<body>
+  <%- include("partial/nav")%>
+
+<%if(typeof(errors)!="undefined"){%>
+  <h1>Registration unsuccessful</h1>
+  <% for(x in errors){%>
+  <br><span>
+    <%errors[x]%></span>
+  <%}%>
+<%}else{%>
+  <h1>Registration Successful</h1>
+<%}%>
+</body>
+
 </html>
