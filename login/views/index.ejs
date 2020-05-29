@@ -9,12 +9,11 @@
 <%- include("partial/nav")%>
 <!-- page first loaded form not sent -->
   <%if(errors === null){%>
-    <h1>Registration</h1>
+    <h1>Login</h1>
     <%- include("partial/form")%>
-
 <!--form submitted and errors found -->
   <%}else{%>
-    <h1>Login</h1>
+    <h1>Login Error</h1>
     <!-- display the errors-->
         <% for(x in errors){%>
           <%console.log(errors[x])%>
