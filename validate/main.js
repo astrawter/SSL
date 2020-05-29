@@ -46,7 +46,10 @@ router.post("/login", function(req, res) {
 
   //Validate name
   if (req.body.fname == "") {
-    errors.push("Please enter your name")
+    errors.push("Please enter your first name")
+  }
+  if (req.body.lname == "") {
+    errors.push("Please enter your last name")
   }
 
   //Validate Address
@@ -55,11 +58,37 @@ router.post("/login", function(req, res) {
   }
 
   //Validate City
+  if (req.body.fname == "") {
+    errors.push("Please enter your name")
+  }
+
+  //Validate State
+  if (!/^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$/.test(req.body.state)) {
+    errors.push("Please enter a valid state")
+  }
+  //Validate Zip
+
+  //Validate Age
+
+  //Validate consent
+
+  //Validate bio
+  if (req.body.bio == "") {
+    errors.push("Please enter some information about you")
+  }
+
+
+
+
+
+
+
 
   //redirect to success page
   console.log(errors);
   res.render("success", {pagename: "Success", errors:errors});
 })
+
 
 app.use(express.static("public"));
 app.use("/", router);
