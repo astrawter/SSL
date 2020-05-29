@@ -9,7 +9,7 @@
 <body>
   <%- include("partial/nav")%>
 
-<%if(typeof(errors)!="undefined"){%>
+<%if(typeof(errors)!="undefined" || errors.length > 0){%>
   <h1>Registration unsuccessful</h1>
   <%- include("partial/form")%>
   <% for(x in errors){%>

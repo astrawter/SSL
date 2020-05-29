@@ -66,11 +66,26 @@ router.post("/login", function(req, res) {
   if (!/^(?:(A[KLRZ]|C[AOT]|D[CE]|FL|GA|HI|I[ADLN]|K[SY]|LA|M[ADEINOST]|N[CDEHJMVY]|O[HKR]|P[AR]|RI|S[CD]|T[NX]|UT|V[AIT]|W[AIVY]))$/.test(req.body.state)) {
     errors.push("Please enter a valid state")
   }
+
   //Validate Zip
+  if (!/^\d{5}$/.test(req.body.zip)) {
+    errors.push("Please enter a valid zip code")
+  }
 
   //Validate Age
+  if (!/^(1[89]|[2-9]\d)$/.test(req.body.age)) {
+    errors.push("You must be 18 years or older to register")
+  }
 
-  //Validate consent
+  //Validate Gender
+  if (req.body.gender == null) {
+    errors.push("Please choose a gender")
+  }
+
+  //Validate Consent
+  if (req.body.consent !== "true") {
+    errors.push("Please agree to the terms and conditions")
+  }
 
   //Validate bio
   if (req.body.bio == "") {
@@ -85,7 +100,7 @@ router.post("/login", function(req, res) {
 
 
   //redirect to success page
-  console.log(errors);
+  console.log(errors.length);
   res.render("success", {pagename: "Success", errors:errors});
 })
 

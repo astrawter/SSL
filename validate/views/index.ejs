@@ -6,7 +6,17 @@
   </head>
   <body>
     <%- include("partial/nav")%>
+
     <h1>Registration</h1>
     <%- include("partial/form")%>
+  <%if(typeof(errors)!="undefined"){%>
+    <h1>Registration unsuccessful</h1>
+    <%- include("partial/form")%>
+    <% for(x in errors){%>
+    <br><span>
+      <%errors[x]%></span>
+    <%}%>
+  <%}%>
+
   </body>
 </html>
