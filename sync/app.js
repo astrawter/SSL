@@ -1,12 +1,12 @@
-//1
 var http = require("http");
-//2
+
 function myname() {
   console.log("Here is my IP address");
 }
-//3
+
 async function callHttpbin() {
-  let promise = new Promise((resolve, reject) => {
+  let result ="";
+  let promise = await new Promise((resolve, reject) => {
     http.get(
       'http://httpbin.org/ip',
       function(response) {
@@ -16,22 +16,20 @@ async function callHttpbin() {
           str += data;
         });
         response.on('end', function() {
-          var result = JSON.parse(str);
-          myips = result.origin;
-          resolve(myips)
+          var myips = JSON.parse(str);
+          result = myips.origin;
+          resolve(result)
         });
       }
     );
   });
-
-  let result = await promise;
+  return result;
 }
 
 async function executeAsyncTask() {
-  const valueA = await callHttpbin()
+  const valueA = await callHttpbin();
   const valueB = myname();
-  console.log(valueB + " " + valueA)
+  console.log(valueA)
 }
 
 executeAsyncTask()
-// Output Here is my IP address 149.24.160.1, 149.24.160.1
