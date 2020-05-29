@@ -19,7 +19,7 @@ app.engine("ejs", require("ejs").__express);
 
 router.get("/", function(req, res) {
   res.render("index", {
-    pagename: "Home"
+    pagename: "Home",errors:null
   })
 })
 
@@ -29,11 +29,6 @@ router.get("/about", function(req, res) {
   })
 })
 
-router.get("/success", function(req, res) {
-  res.render("success", {
-    pagename: "Success"
-  })
-})
 
 router.post("/login", function(req, res) {
   //displays form information to the console
@@ -96,12 +91,9 @@ router.post("/login", function(req, res) {
 
 
 
-
-
-
-  //redirect to success page
+  //redirect to index
   console.log(errors.length);
-  res.render("success", {pagename: "Success", errors:errors});
+  res.render("index", {pagename: "Home", errors:errors});
 })
 
 
