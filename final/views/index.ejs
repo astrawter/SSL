@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Login</title>
+  </head>
+  <body>
+
+<%- include("partial/nav")%>
+<!-- page first loaded form not sent -->
+  <%if(errors === null){%>
+    <h1>Login</h1>
+    <%- include("partial/form")%>
+<!--form submitted and errors found -->
+  <%}else{%>
+    <h1>Login Error</h1>
+    <!-- display the errors-->
+        <% for(x in errors){%>
+          <%console.log(errors[x])%>
+        <span><%- errors[x] %></span><br>
+        <%}%>
+<!-- Display form again to be resubmited -->
+<br>
+    <%- include("partial/form")%>
+
+<%}%>
+
+  </body>
+</html>

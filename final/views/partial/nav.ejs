@@ -1,0 +1,7 @@
+
+
+<a href="/">Home</a>
+<%if(typeof(sess)!="undefined" && sess.loggedin==true){%>
+  <a href="/profile">Profile</a>
+  <a href="/logout">Logout</a>
+<%}%>
