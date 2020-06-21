@@ -55,24 +55,20 @@ router.post("/login", function(req, res) {
   //Validate user information
   //keeps track of all errors from form validation
   var errors=[];
-  var counter= 0;
 
   //Validate Email Address
   if (req.body.email !== "Mike@aol.com") {
     errors.push("Please enter a valid email address")
-  }else {
-    counter +=1;
   }
 
   //Validate Password
   if (req.body.password !== "abc123") {
     errors.push("Please enter the correct password")
-  }else {
-    counter +=1;
   }
 
+
   //validate user
-  if (counter == 2) {
+  if (req.body.email === "Mike@aol.com" && req.body.password === "abc123") {
     console.log("Test");
     sess = req.session;
     sess.loggedin = true;
