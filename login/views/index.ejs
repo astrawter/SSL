@@ -33,8 +33,7 @@
       <%}else{%>
         <!-- display the errors-->
             <% for(x in errors){%>
-              <%console.log(errors[x])%>
-            <span><%- errors[x] %></span><br>
+              <div class="alert alert-secondary" role="alert"><%- errors[x] %></div>
             <%}%>
     <!-- Display form again to be resubmited -->
     <br>
