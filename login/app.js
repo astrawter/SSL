@@ -17,7 +17,6 @@ const session = require("express-session");
 app.use(session({secret:"secret", saveUninitialized:true,resave:true}))
 var sess;
 
-console.log(sess);
 let ejs = require("ejs");
 const router = express.Router();
 
@@ -33,7 +32,6 @@ router.get("/", function(req, res) {
 
 router.get("/profile", function(req,res){
   sess = req.session;
-  console.log("sess "+ sess);
   if (typeof(sess)=="undefined" || sess.loggedin != true) {
     var errors = ["Not an authenticated user"];
     res.render("index",{pagename:"Home",errors:errors})
@@ -50,9 +48,6 @@ router.get("/logout", function(req,res){
 })
 
 router.post("/login", function(req, res) {
-  //displays form information to the console
-  console.log(req.body);
-
   //Validate user information
   //keeps track of all errors from form validation
   var errors=[];
@@ -70,7 +65,6 @@ router.post("/login", function(req, res) {
 
   //validate user
   if (req.body.email === "Mike@aol.com" && req.body.password === "abc123") {
-    console.log("Test");
     sess = req.session;
     sess.loggedin = true;
     //redirects to profile
