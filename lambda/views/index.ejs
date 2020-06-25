@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V19</title>
+	<title>Login</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -26,11 +26,9 @@
     <!--Start Form-->
     <!-- page first loaded form not sent -->
     <%if(errors === null){%>
-    <h1>Login</h1>
     <%- include("partial/form")%>
     <!--form submitted and errors found -->
     <%}else{%>
-    <h1>Login Error</h1>
     <!-- display the errors-->
     <% for(x in errors){%>
     <span>
@@ -40,7 +38,6 @@
     <br>
     <%- include("partial/form")%>
     <%}%>
-
     <!--End Form-->
     </div>
 	</div>
