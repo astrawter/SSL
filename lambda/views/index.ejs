@@ -31,8 +31,7 @@
     <%}else{%>
     <!-- display the errors-->
     <% for(x in errors){%>
-    <span>
-      <%- errors[x] %></span><br>
+			<div class="alert alert-danger" role="alert"><%- errors[x] %></div>
     <%}%>
     <!-- Display form again to be resubmited -->
     <br>
